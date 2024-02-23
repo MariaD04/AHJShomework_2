@@ -3,21 +3,21 @@ export default function startGame() {
   let maxLength = 16;
 
   const getHole = (index) => document.getElementById(`hole${index}`);
-  
+
   const deactivateHole = (index) => {
-    getHole(index).classList.remove('hole-has-goblin');
-    getHole(index).dataset.visited = 'true';
+    getHole(index).classList.remove("hole-has-goblin");
+    getHole(index).dataset.visited = "true";
     maxLength -= 1;
-  }
-    
+  };
+
   const activateHole = () => {
     activeHole = Math.floor(1 + Math.random() * 16);
-    if (getHole(activeHole).dataset.visited === 'true') {
+    if (getHole(activeHole).dataset.visited === "true") {
       activateHole();
     } else {
-      getHole(activeHole).classList.add('hole-has-goblin');
+      getHole(activeHole).classList.add("hole-has-goblin");
     }
-  }
+  };
 
   setInterval(() => {
     deactivateHole(activeHole);
@@ -26,8 +26,4 @@ export default function startGame() {
     }
     activateHole();
   }, 800);
-
 }
-
-
-
